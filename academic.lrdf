@@ -1,66 +1,26 @@
-@PRA_ENTRY(main da94c69aa8165abfc9dc8b3926476160fd00c947){
-    kv_field uid_doi string "10.1007/s10758-020-09469-z";
+@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1007/s10758-020-09469-z") {
     kv_field search_term string "ST.PRA.WOS.3";
-    cluster inclusion_criteria_logic {
-        kv_field exclusion binary 0b00000000;
-        kv_field inclusion binary 0b0001;
-    }
     kv_field count_citation int 9;
     kv_field count_reference int 28;
     cluster focus_areas -> UNKEY {
         string "Electrical Engineering";
     }
-    cluster learning_process {
-        kv_field mentions bool true;
-        kv_field defines bool false;
-        cluster extracted_data -> REPETABLE[1] {
-            kv_field definition null;
-            descriptor page1044::paragraph2 kv_field comment string "Over the last several years, virtual reality (VR) has moved from being the purview of gaming to application in professional development such as psychology, medicine as well as education. The application in the learning process is of special interest, as it gives completely new opportunities to provide information and acquire both theoretical and practical knowledge.";
-            descriptor page1044::paragraph3 kv_field comment string "Here, specifcally, it is a hybrid approach that incorporates digital media through VR into a traditional place-based learning process and is more efective in teaching mechatronics compared with traditional face-to-face methods.";
-        }
+    kv_field mentions_learning_process bool true;
+    kv_field defines_learning_process bool false;
+    kv_field mentions_learnig_experience bool false;
+    kv_field defines_learnig_experience bool false;W
+    kv_field mentions_engagement bool true;
+    kv_field defines_engagement bool false;
+    kv_field mentions_motivation bool false;
+    kv_field defines_motivation bool false;
+    kv_field mentions_abstract_concepts bool true;
+    kv_field defines_abstract_concepts bool false;
+    kv_field mentions_user_interface bool true;
+    kv_field defines_user_interface bool true;
+    cluster class_ar_applied null;
+    cluster class_vr_applied -> UNKEY {
+        string "Mechatronics";
     }
-    cluster learnig_experience {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field comment null;
-        }
-    }
-    cluster engagement {
-        kv_field mentions bool true;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            descriptor pageg1057::paragraph2 kv_field comment string "Future works may include adding a continuous screening of heart rate, EEG and GSR signals to control the level of stress, confdent and engagement of students using VR for learning as well as while solving post-tests.";
-        }
-    }
-    cluster motivation {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field comment null;
-        }
-    }
-    cluster abstract_concepts {
-        kv_field mentions bool true;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            descriptor page1043::paragraph1 kv_field comment string "Difculties of students of science-related subjects often stem from the abstractness and complexity of learned concepts and the fact that those concepts process are not easily applied in practice. Lack of understanding of fundamentals stifes their potential growth and development and exploration of more complicated issues.";
-        }
-    }
-    cluster user_interface {
-        kv_field mentions bool true;
-        kv_field defines bool true;
-        cluster extracted_data {
-            descriptor page1047::paragraph2 kv_field definition string "The user interface (UI), in human–computer interaction, is the environment where the interaction between human and machine occurs. The aim of UI is to allow ergonomic, efective and efcient control of the machine.";
-            descriptor page1047::paragraph2 kv_field comment string "The design of the user interface is an integral part for the intended user experience. It is the main part of the scenario the user interacts with and gets feedback from.";
-        }
-    }
-    kv_field class_ar_applied null;
-    kv_field class_vr_applied string "Mechatronics";
     cluster educational_purpose {
         kv_field is_training bool false;
         kv_field is_teaching bool true;
@@ -69,9 +29,9 @@
     cluster type_of_experience {
         kv_field is_augmented_reality bool false;
         kv_field is_virtual_reality bool true;
-        }
-    cluster delivery_technology {
         kv_field is_display bool false;
+    }
+    cluster delivery_technology {
         kv_field is_screen bool false;
         kv_field is_head_mounted_display bool true;
     }
@@ -86,7 +46,7 @@
         kv_field is_specialized_controller bool false;
         kv_field is_no_interaction bool false;
     }
-    cluster System_Interaction {
+    cluster system_interaction {
         kv_field is_dialog_system bool true;
         kv_field is_intelligent_agent bool false;
         kv_field is_no_interaction bool false;
@@ -100,470 +60,37 @@
         kv_field is_serious_games bool false;
         kv_field is_no_gamefication bool true;
     }
-    cluster integration_traditional_teaching {
-        kv_field is_considered bool false;
-        kv_field consideration null;
+    kv_field is_considered_integration_traditional_teaching bool false;
+    cluster used_technologies -> UNKEY {
+        string "Virtual Mechatronics Laboratory";
+        string "Unity3D";
+        string "3DSMax";
     }
-    cluster used_technologies {
-        kv_field number_technologies_used int 3;
-        cluster technologies -> REPETABLE[1] {
-            cluster technology {
-                descriptor page1047::paragraph1 kv_field name string "Virtual Mechatronics Laboratory";
-                descriptor page1047::paragraph1 kv_field type string "Research";
-            }
-            cluster technology {
-                descriptor page1047::paragraph1 kv_field name string "Unity3D";
-                descriptor page1047::paragraph1 kv_field type string "Game Engine";
-            }
-            cluster technology {
-                descriptor page1047::paragraph1 kv_field name string "3DSMax";
-                descriptor page1047::paragraph1 kv_field type string "3D Modeling";
-            }
-        }
-    }
-    cluster validation -> REPETABLE[1] {
-        kv_field is_validated bool true;
-        cluster validation_mechanism id sus_questionnaire {
-            descriptor page1050::paragraph1 kv_field validation_type string "System Usability Questionnaire";
-            descriptor page1052::table1 kv_field validation_steps string """
-            Respond to 10 questions, with values ranging from 1 to 5:
-            1. I felt very comfortable during the session
-            2. Nothing bothered/interrupted the immersion
-            3. I found the visual part of VR environment realistic
-            4. I do not feel eye strain
-            5. I do not feel disconfort
-            6. I would imagine that I would use VR on daily basis
-            7. I find VR presentation usefull for memorization
-            8. I find VR presentation useful for understanding
-            9. The presented device seem real
-            10. I would like to use the system as a part of classes
-            """;
-        }
-        cluster validation_mechanism id pre_post_test {
-            descriptor page1051::paragraph2 kv_field validation_type string "Pre and Post Test"
-            descriptor page1053::table2 kv_field validation_steps string """
-            1. Circle the structural components of a permanent magnet synchronous motor?
-                Commutator, Squirrel cage rotor, Permanent magnets on rotor, Laminated stator core with slots, Shaft, Laminated rotor core, Silent pole stator, Concentrated winding, Distributed three phase winding, Slip rings, Rotor bars, Short circuit end rings, Bearings, Housing 
-            2. Circle the structural components of an induction motor?
-                Distributed three phase winding, Permanent magnets on rotor, Shaf, Bearings, Commutator, Rotor bar, Brushes, Rotor shorting rings, Laminated stator core with slots, Housing, Concentrated windings 
-            3. Circle the structural components of a switched reluctance motor?
-                Permanent magnets on rotor, Commutator, Squirrel cage rotor, Shaft, Silent pole stator, Concentrated stator winding, Distributed three phase winding, Slip rings, Rotor bars, Rotor shorting rings, Bearings, Housing, Massive stator back iron, Brushes, Silent pole rotor, Concentrated rotor winding 
-            5. Circle the structural components of a permanent magnet DC motor?
-                Commutator, Squirrel cage rotor, Brushes, Permanent magnets on rotor, Laminated stator core with slots, Shaft, Laminated rotor core with slots, Distributed rotor winding, Permanent magnets on stator, Concentrated winding, Distributed three phase winding, Slip rings, Rotor bars, Short circuit end rings, Bearings, Housing, Shaft, Massive stator back iron 
-            6. Circle the structural components of a permanent magnet synchronous generator?
-                Slip rings, Squirrel cage rotor, Permanent magnets on rotor, Laminated stator core with slots, Shaft, Laminated rotor core, Silent pole stator, Concentrated winding, Distributed three phase winding, Slip rings, Rotor bars, Short circuit end rings, Bearings, Housing, Commutator, Silent pole rotor 
-            7. Circle the structural components of a wound stator DC commutator motor?
-                Commutator, Squirrel cage rotor, Permanent magnets on rotor, Massive stator core with silent poles, Shaft, Distributed rotor winding, Laminated rotor core with slots, Permanent magnets on stator, Concentrated winding, Distributed three phase winding, Slip rings, Rotor bars, Short circuit end rings, Bearings, Housing, Massive stator back iron, Brushes, Housing, Shaft, Silent pole rotor 
-            8. If you have to test a three-phase permanent magnet synchronous motor whose stator winding is connected in Y (star) connection how many wires you have to use to connect the motor to the power supply?
-                (a) 5, (b) 3, (c) 4, (d) 2
-            9. What happens to rotor speed when the mechanical load on permanent magnet synchronous motor is increased?
-                (a) The speed increases, (b) The speed decreases, (c) The speed stays the same
-            10 When the mechanical load on the permanent magnet synchronous motor is increased the load angle:
-                (a) Increases, (b) Stays the same, (c) Decreases
-            11. What is the maximum load (for what load angle) that can be applied to the motor shaft at which the motor will stop?
-                (a) 22.5o, (b) 50o, (c) 90o, (d) 75o
-            """;
-        }
-        cluster validation_mechanism id subjective_assessmet {
-            descriptor page1051::paragraph2 kv_field validation_type string "Subjective Assessment of educational values of VR application"
-            descriptor page1055::table3 kv_field validation_steps string """
-            1. The exercise allowed me to understand the fundamentals of the basic structural part of electrical machines
-            2. The sequence of actions for assembling the electrical machines was logical
-            3. Performed actions gave predictable results
-            4. All performed actions were relevant and necessary
-            5. The exercise has added value in comparison to real-world practice
-            6. The exercise can be used instead of real-world practice
-            7. The exercise allowed me to understand the fundamentals of testing of electric motors
-            8. The sequence of actions for preparation of the test bed for measurements was logical
-            9. All actions were quite realistic and close to real lab testing
-            10. Would you like to use this VR approach latter in other courses?
-            """;
-        }
-    }
-    cluster subjects_statistic -> MULTABLE {
-        cluster students {
-            kv_field students_count int 72;
-            kv_field students_mean_age float 22.17;
-            kv_field students_median_age float 22.5;
-            kv_field students_std_age float 1.82;
-            kv_field students_range_age range 19-24;
-            cluster men_students {
-                kv_field men_students_mean_age float 22.71;
-                kv_field men_students_median_age int 23;
-                kv_field men_students_std_age float 1.28;
-                kv_field men_students_range_age range 21-24;
-            }
-            cluster women_students {
-                kv_field women_students_mean_age float 21.40;
-                kv_field women_students_median_age int 20;
-                kv_field women_students_std_age float 2.15;
-                kv_field women_students_range_age range 19-24;
-            }
-        }
-        cluster academics {
-            kv_field academics_count int 24;
-            kv_field academics_mean_age float 41.5;
-            kv_field academics_median_age int 40;
-            kv_field academics_std_age float 8.51;
-            kv_field academics_range_age range 29-60;
-            cluster men_academics {
-                kv_field men_academics_mean_age float 42.07;
-                kv_field men_academics_median_age float 41.5;
-                kv_field men_academics_std_age float 9.25;
-                kv_field men_academics_range_age range 29-60;
-            }
-            cluster women_academics {
-                kv_field women_academics_mean_age float 39.3;
-                kv_field women_academics_median_age float 38.5;
-                kv_field women_academics_std_age float 6.75;
-                kv_field women_academics_range_age range 28-50;
-            }
-        }
-    }
-    cluster article_results -> MULTABLE & REPETABLE[1] {
-        cluster result subjective_assessmet -> REPETABLE[1] {
-            kv_field question_mean float 4.28;
-            kv_field question_std float 3.28;
-            kv_field strongly_agree_percentage percentage 47.2%;
-            kv_field agree_percentage percentage 33.3%;
-            kv_field neutral_percentage percentage 19.4%;
-            kv_field disagree_percentage percentage 0%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 3.94;
-            kv_field question_std float 4.57;
-            kv_field strongly_agree_percentage percentage 16.7%;
-            kv_field agree_percentage percentage 62.5%;
-            kv_field neutral_percentage percentage 19.4%;
-            kv_field disagree_percentage percentage 1.4%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 4.72;
-            kv_field question_std float 4.76;
-            kv_field strongly_agree_percentage percentage 79.2%;
-            kv_field agree_percentage percentage 13.9%;
-            kv_field neutral_percentage percentage 6.9%;
-            kv_field disagree_percentage percentage 0%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 3.67;
-            kv_field question_std float 3.61;
-            kv_field strongly_agree_percentage percentage 13.9%;
-            kv_field agree_percentage percentage 47.2%;
-            kv_field neutral_percentage percentage 30.6%;
-            kv_field disagree_percentage percentage 8.3%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 4.71;
-            kv_field question_std float 4.55;
-            kv_field strongly_agree_percentage percentage 73.6%;
-            kv_field agree_percentage percentage 23.6%;
-            kv_field neutral_percentage percentage 2.8%;
-            kv_field disagree_percentage percentage 0%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 3.85;
-            kv_field question_std float 3.05;
-            kv_field strongly_agree_percentage percentage 22.2%;
-            kv_field agree_percentage percentage 50%;
-            kv_field neutral_percentage percentage 19.4%;
-            kv_field disagree_percentage percentage 6.9%;
-            kv_field strongly_disagree_percentage percentage 1.5%;
-            kv_field question_mean float 3.60;
-            kv_field question_std float 3.46;
-            kv_field strongly_agree_percentage percentage 9.7%;
-            kv_field agree_percentage percentage 54.2%;
-            kv_field neutral_percentage percentage 25%;
-            kv_field disagree_percentage percentage 8.3%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 3.82;
-            kv_field question_std float 2.76;
-            kv_field strongly_agree_percentage percentage 25%;
-            kv_field agree_percentage percentage 44.4%;
-            kv_field neutral_percentage percentage 23.6%;
-            kv_field disagree_percentage percentage 1.4%;
-            kv_field strongly_disagree_percentage percentage 5.6%;
-            kv_field question_mean float 3.17;
-            kv_field question_std float 5.64;
-            kv_field strongly_agree_percentage percentage 2.8%;
-            kv_field agree_percentage percentage 25%;
-            kv_field neutral_percentage percentage 58.3%;
-            kv_field disagree_percentage percentage 13.9%;
-            kv_field strongly_disagree_percentage percentage 0%;
-            kv_field question_mean float 4.61;
-            kv_field question_std float 4.28;
-            kv_field strongly_agree_percentage percentage 62.5%;
-            kv_field agree_percentage percentage 36.1%;
-            kv_field neutral_percentage percentage 1.4%;
-            kv_field disagree_percentage percentage 0%;
-            kv_field strongly_disagree_percentage percentage 0%;
-        }
-        cluster result sus_questionnaire {
-            cluster students -> REPETABLE[1] {
-                kv_field question_mean float 4.22;
-                kv_field question_sd float 0.71;
-                kv_field strongly_agree_percentage percentage 38.9%;
-                kv_field agree_percentage percentage 44.4%;
-                kv_field neutral_percentage percentage 16.7%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 3.9;
-                kv_field question_sd float 0.93;
-                kv_field strongly_agree_percentage percentage 29.2%;
-                kv_field agree_percentage percentage 41.7%;
-                kv_field neutral_percentage percentage 19.4%;
-                kv_field disagree_percentage percentage 9.7%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 3.78;
-                kv_field question_sd float 0.99;
-                kv_field strongly_agree_percentage percentage 27.8%;
-                kv_field agree_percentage percentage 34.7%;
-                kv_field neutral_percentage percentage 25%;
-                kv_field disagree_percentage percentage 12.5%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.44;
-                kv_field question_sd float 0.90;
-                kv_field strongly_agree_percentage percentage 66.6%;
-                kv_field agree_percentage percentage 16.7%;
-                kv_field neutral_percentage percentage 11.1%;
-                kv_field disagree_percentage percentage 5.6%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.08;
-                kv_field question_sd float 0.99;
-                kv_field strongly_agree_percentage percentage 50%;
-                kv_field agree_percentage percentage 34.7%;
-                kv_field neutral_percentage percentage 8.3%;
-                kv_field disagree_percentage percentage 6.9%;
-                kv_field strongly_disagree_percentage percentage ;
-                kv_field question_mean float 3.92;
-                kv_field question_sd float 1.22;
-                kv_field strongly_agree_percentage percentage 33.3%;
-                kv_field agree_percentage percentage 22.2%;
-                kv_field neutral_percentage percentage 27.7%;
-                kv_field disagree_percentage percentage 6.9%;
-                kv_field strongly_disagree_percentage percentage 9.7%;
-                kv_field question_mean float 4.21;
-                kv_field question_sd float 0.85;
-                kv_field strongly_agree_percentage percentage 44.4%;
-                kv_field agree_percentage percentage 36.1%;
-                kv_field neutral_percentage percentage 15.3%;
-                kv_field disagree_percentage percentage 4.2%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.36;
-                kv_field question_sd float 0.89;
-                kv_field strongly_agree_percentage percentage 58.3%;
-                kv_field agree_percentage percentage 25%;
-                kv_field neutral_percentage percentage 11.1%;
-                kv_field disagree_percentage percentage 5.6%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 3.61;
-                kv_field question_sd float 0.84;
-                kv_field strongly_agree_percentage percentage 16.7%;
-                kv_field agree_percentage percentage 34.7%;
-                kv_field neutral_percentage percentage 41.6%;
-                kv_field disagree_percentage percentage 6.9%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.65;
-                kv_field question_sd float 0.58;
-                kv_field strongly_agree_percentage percentage 70.8%;
-                kv_field agree_percentage percentage 23.6%;
-                kv_field neutral_percentage percentage 5.6%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-            }
-            cluster professors -> REPETABLE[1] {
-                kv_field question_mean float 4.54;
-                kv_field question_sd float 0.58;
-                kv_field strongly_agree_percentage percentage 58.3%;
-                kv_field agree_percentage percentage 37.5%;
-                kv_field neutral_percentage percentage 4.2%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.00;
-                kv_field question_sd float 0.65;
-                kv_field strongly_agree_percentage percentage 16.7%;
-                kv_field agree_percentage percentage 58.3%;
-                kv_field neutral_percentage percentage 20.8%;
-                kv_field disagree_percentage percentage 4.2%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.21;
-                kv_field question_sd float 0.76;
-                kv_field strongly_agree_percentage percentage 37.5%;
-                kv_field agree_percentage percentage 37.5%;
-                kv_field neutral_percentage percentage 20.8%;
-                kv_field disagree_percentage percentage 4.2%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.63;
-                kv_field question_sd float 0.75;
-                kv_field strongly_agree_percentage percentage 79.2%;
-                kv_field agree_percentage percentage 4.2%;
-                kv_field neutral_percentage percentage 16.7%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.04;
-                kv_field question_sd float 0.84;
-                kv_field strongly_agree_percentage percentage 37.5%;
-                kv_field agree_percentage percentage 29.2%;
-                kv_field neutral_percentage percentage 33.3%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 2.83;
-                kv_field question_sd float 0.69;
-                kv_field strongly_agree_percentage percentage 0%;
-                kv_field agree_percentage percentage 16.7%;
-                kv_field neutral_percentage percentage 62.5%;
-                kv_field disagree_percentage percentage 20.8%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.54;
-                kv_field question_sd float 0.58;
-                kv_field strongly_agree_percentage percentage 58.3%;
-                kv_field agree_percentage percentage 37.5%;
-                kv_field neutral_percentage percentage 4.2%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.63;
-                kv_field question_sd float 0.75;
-                kv_field strongly_agree_percentage percentage 79.2%;
-                kv_field agree_percentage percentage 4.2%;
-                kv_field neutral_percentage percentage 16.7%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.33;
-                kv_field question_sd float 0.55;
-                kv_field strongly_agree_percentage percentage 37.5%;
-                kv_field agree_percentage percentage 58.3%;
-                kv_field neutral_percentage percentage 4.2%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-                kv_field question_mean float 4.75;
-                kv_field question_sd float 0.52;
-                kv_field strongly_agree_percentage percentage 79.2%;
-                kv_field agree_percentage percentage 16.7%;
-                kv_field neutral_percentage percentage 4.2%;
-                kv_field disagree_percentage percentage 0%;
-                kv_field strongly_disagree_percentage percentage 0%;
-            }
-        }
-        cluster result pre_post_test -> REPETABLE[1] {
-            kv_field comparison evolution [pre_test ~12%] >> [post_test_ctrl_grp ~70%] >> [post_test_exp_grp ~95%];
-            kv_field comparison evolution [pre_test ~17%] >> [post_test_ctrl_grp ~56%] >> [post_test_exp_grp ~96%];
-            kv_field comparison evolution [pre_test ~15%] >> [post_test_ctrl_grp ~60%] >> [post_test_exp_grp ~96%];
-            kv_field comparison evolution [pre_test ~11%] >> [post_test_ctrl_grp ~68%] >> [post_test_exp_grp ~89%];
-            kv_field comparison evolution [pre_test ~10%] >> [post_test_ctrl_grp ~65%] >> [post_test_exp_grp ~90%];
-            kv_field comparison evolution [pre_test ~21%] >> [post_test_ctrl_grp ~57%] >> [post_test_exp_grp ~91%];
-            kv_field comparison evolution [pre_test ~28%] >> [post_test_ctrl_grp ~89%] >> [post_test_exp_grp ~90%];
-            kv_field comparison evolution [pre_test ~29%] >> [post_test_ctrl_grp ~73%] >> [post_test_exp_grp ~98%];
-            kv_field comparison evolution [pre_test ~30%] >> [post_test_ctrl_grp ~62%] >> [post_test_exp_grp ~86%];
-            kv_field comparison evolution [pre_test ~20%] >> [post_test_ctrl_grp ~64%] >> [post_test_exp_grp ~82%];
-        }
-        kv_field country_validation null;
-        kv_field vr_ar_positive_impact bool true;
-        cluster comments -> REPETABLE {
-            kv_field comment string """
-            Analysing pre- and post-tests results (Fig. 12) it can be noticed that both VR and traditional auditory laboratory have a positive effect on the knowledge of the subject (before the pretest students had only read a manual). The post-test conducted after 3 days of education indicates an advantage of VR laboratory over the traditional approach—students participating in the VR sessions passed the test 25,1 % better. It is especially visible in case of six first questions regarding construction of electric machines. In VR, students had an opportunity to assemble and disassemble machines, see every part and inspect them in the context of the whole machine. Auditory classes give no such possibility (e.g. taking out windings from a rotor). What is more, free comments from students allow us to suspect that classes utilizing attractive VR didactic methods are more memorable than traditional ones.
-            """;
-        };
-    }
-    cluster professor {
-        kv_field considers_prof_pov bool true;
-        null cluster comments;
-    }
-    cluster problem_improvements -> REPETABLE[1] {
-        kv_field mentions_problems bool true;
-        cluster regard {
-            kv_field proposes_solutions bool true;
-            descriptor page1053::paragraph1 kv_field problem string """
-            Possible adverse effects might include eye strain or fatigue resulting from focusing sight on an object in immediate vicinity producing a lot of blue light. It also must be noted that during the session users have to wear a headset and often engage all their extremities. Heavy VR headset may increase the neck strain and extending the arm straight out (during selection of particular machines parts) may cause shoulder discomfort.
-            """;
-            descriptor page1054::paragraph0 kv_field solution string """
-            Thus, it is very important to follow some baseline of optimal object placement and angles (for example presented in Penumudi and Kuppam (2020)) to design applications that minimize user discomfort.
-            """;
-        }
-        cluster regard {
-            kv_field proposes_solutions bool true;
-            descriptor page1054::paragraph1 kv_field problem string """
-            Additionally, the discomfort stemmed from uneasiness connected with the need to move around the virtual room, at the same time being unaware of the real life circumstances. A cable which is necessary in case of HTC Vive is somewhat problematic and can cause negative feelings. In practice, students had to work in pairs and while one person was immersing themselves in the VR environment, the second one was securing them.
-            """;
-            descriptor page1054::paragraph1 kv_field solution string """
-            To resolve this issue, wireless autonomic solutions can be used, although it is at this moment connected with a decrease in image quality.
-            """;
-        }
-        cluster regard {
-            kv_field proposes_solutions bool false;
-            descriptor paga1056::paragraph1 kv_field problem string """
-            Similarly to SUS evaluation, the worst assessed point was realism of the activity, although that had been expected.
-            """;
-            descriptor paga1056::paragraph1 kv_field explanation string """
-            During the realisation of the project, we conducted consultations with electric machines didactic teams at partner universities. They remarked that based on their experience, better educational effects are achieved when electric machine components are clearly highlighted with unnatural colours. That is why  photorealism of the VR machines was purposefully distorted.
-            """;
-        }
-    }
-    cluster further_improvements -> REPETABLE {
-        descriptor page1057::paragraph1 kv_field comment string "In the next version we are going to consider combining the visual part with the auditory and haptic cues to create more realistic experience.";
-        descriptor page1057::paragraph2 kv_field comment string "Future works may include adding a continuous screening of heart rate, EEG and GSR signals to control the level of stress, confident and engagement of students using VR for learning as well as while solving post-tests.";
-        descriptor page1057::paragraph2 kv_field comment string "What is more, we would like to analyse a trajectory of movements to evaluate dexterity in the process of interaction with the platform.";
-        descriptor page1057::paragraph3 kv_field comment string "From the technical side, further development of this project would have to take into consideration utilizing additional devices and functions to make the prototype a complete mechanical and electrical laboratory tool. To make the application more useful in a practical setting it would be necessary to make it available for multiple VR platforms. By doing so the application can be used on smaller and less expensive devices making the application portable (remote learning) and more attractive from an economical point of view.";
-    }
-}
+    kv_field is_validated bool true;
+    kv_field country_validation null;
+    kv_field vr_ar_positive_impact bool true;
+    kv_field considers_prof_pov bool true;
+} @END;
 
-@PRA_ENTRY(main 08ce254a27bd7ac6cb96ed1f18b5317dafbb48da){
-    kv_field uid_doi string "10.3390/app12105159";
+@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.3390/app12105159") {
     kv_field search_term string "ST.PRA.WOS.3";
-    cluster inclusion_criteria_logic {
-        kv_field exclusion binary 0b00000000;
-        kv_field inclusion binary 0b0010;
-    }
     kv_field count_citation int 2;
     kv_field count_reference int 54;
     cluster focus_areas -> UNKEY {
         string "Electrical Engineering";
     }
-    cluster learning_process {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field comment null;
-        }
-    }
-    cluster learning_experience {
-        kv_field mentions bool true;
-        kv_field defines bool false;
-        cluster extracted_data -> REPETABLE[1] {
-            kv_field definition null;
-            descriptor page2::paragraph2 kv_field comment string "AUREL [9] is an interactive application that aids in the understanding of specific STEM topics. It enhances the learning experience by projecting 3D models onto physical 2D textures that are part of the AR system, drawing virtual objects using the mobile display, and placing them onto a specific image tracked for the camera.";
-            descriptor page2::paragraph4 kv_field comment string "This work explores the idea of using equipment recognition and an AR-based tutorial to enhance student learning experiences with electrical equipment in their engineering laboratories.";
-            descriptor page9::paragraph1 kv_field comment string "With the help of AR and DL, the equipment learning application focuses on teaching and improving the student’s learning experience on how to properly use electrical equipment.";
-        }
-    }
-    cluster engagement {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field commet null;
-        }
-    }
-    cluster motivation {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field commet null;
-        }
-    }
-    cluster abstract_concepts {
-        kv_field mentions bool false;
-        kv_field defines bool false;
-        cluster extracted_data {
-            kv_field definition null;
-            kv_field commet null;
-        }
-    }
-    cluster user_interface {
-        kv_field mentions bool true;
-        kv_field defines bool false;
-        cluster extracted_data -> REPETABLE[1] {
-            kv_field definition null;
-            descriptor page5::paragraph1 kv_field comment string "We built user interfaces on top of lab equipment, allowing step-by-step instructions to be incorporated into he application for users to understand and learn how to use specific equipment.";
-            descriptor page::paragraph kv_field comment string "Furthermore, Unity3D enables the development of interactive user interfaces. Users can first use their mobile device to infer the object detection model to detect the lab equipment. The inference will classify and localize lab equipment that has been targeted with the mobile camera. When an object is detected, a user interface (UI) button appears, indicating that an AR-guided tutorial is available for the object. Then, an AR scenario will be loaded, allowing students to use their mobile camera to aim at a specific target. Following that, a 3D object will superimpose on top of the physical object, activating UI panels with instructions on how to use the equipment.";
-        }
-    }
+    kv_field mentions_learning_process bool false;
+    kv_field defines_learning_process bool false;
+    kv_field mentions_learning_experience bool true;
+    kv_field defines_learning_experience bool false;
+    kv_field mentions_engagement bool false;
+    kv_field defines_engagement bool false;
+    kv_field mentions_motivation bool false;
+    kv_field defines_motivation bool false;
+    kv_field mentions_abstract_concepts bool false;
+    kv_field defines_abstract_concepts bool false;
+    kv_field mentions_user_interface bool true;
+    kv_field defines_user_interface bool false;
     kv_field class_ar_applied bool false;
     kv_field class_vr_applied bool false;
     cluster educational_purpose {
@@ -574,9 +101,9 @@
     cluster type_of_experience {
         kv_field is_augmented_reality bool true;
         kv_field is_virtual_reality bool false;
-        }
-    cluster delivery_technology {
         kv_field is_display bool false;
+    }
+    cluster delivery_technology {
         kv_field is_screen bool true;
         kv_field is_head_mounted_display bool false;
     }
@@ -591,7 +118,7 @@
         kv_field is_specialized_controller bool false;
         kv_field is_no_interaction bool false;
     }
-    cluster System_Interaction {
+    cluster system_interaction {
         kv_field is_dialog_system bool true;
         kv_field is_intelligent_agent bool false;
         kv_field is_no_interaction bool false;
@@ -609,179 +136,115 @@
         kv_field is_considered bool false;
         kv_field consideration null;
     }
-    cluster used_technologies {
-        kv_field number_technologies_used int 8;
-        cluster technologies -> REPETABLE[1] {
-            cluster technology {
-                descriptor page3::paragraph0 kv_field name string "Unity3D";
-                descriptor page3::paragraph0 kv_field type string "Game Engine";
-            }
-            cluster technology {
-                descriptor page3::paragraph2 kv_field name string "MobileNet-SSD v2";
-                descriptor page3::paragraph2 kv_field type string "Deep neural network model";
-            }
-            cluster technology {
-                descriptor page5::paragraph2 kv_field name string "OpenCV";
-                descriptor page5::paragraph2 kv_field type string "Open Source software";
-            }
-            cluster technology {
-                descriptor page5::paragraph0 kv_field name string "Vuforia";
-                descriptor page5::paragraph0 kv_field type string "Augmented Reality Engine";
-            }
-            cluster technology {
-                descriptor page3::paragraph0 kv_field name string "TensorFlow";
-                descriptor page3::paragraph0 kv_field type string "Open Source software";
-            }
-            cluster technology {
-                descriptor page7::paragraph0 kv_field name string "LabelImg";
-                descriptor page7::paragraph0 kv_field type string "Open Source software";
-            }
-            cluster technology {
-                descriptor page11::paragraph0 kv_field name string "Photoshop";
-                descriptor page11::paragraph0 kv_field type string "Image Editor"
-            }
-            cluster technology {
-                descriptor page11::paragraph0 kv_field name string "Blender";
-                descriptor page11::paragraph0 kv_field type string "3D Modeling software";
-            }
-        }
+    cluster used_technologies -> UNKEY {
+        string "Unity3D";
+        string "MobileNet-SSD v2";
+        string "OpenCV";
+        string "Vuforia";
+        string "TensorFlow";
+        string "LabelImg";
+        string "Photoshop";
+        string "Blender";
     }
-    cluster validation -> REPETABLE[1] {
-        kv_field is_validated bool true;
-        cluster validation_mechanism {
-            descriptor page13::paragraph2 kv_field validation_type string "Numerical";
-            descriptor page13::paragraph2 kv_field validation_steps string """
-            1. Precision = \frac{TP}{TP + FP}
-            2. Recal = \frac{TP}{TP + FN}
-            3. Intersection over Union = \frac{Area of Overlap}{Area of Union}
-                where T is a threshold, IoU > T is correct and IoU < T is incorrect
-            4. mean Average Precision (mAP) = \frac{\sum_{k=1}^{n}AP_k}{n}
-            """;
-        }
-    }
-    cluster subjects_statistic null;
-    cluster article_results -> MULTABLE {
-        nested average_precision [string "iou", string "mpa"] {
-            range 0.50-0.95, float 0.814;
-            float 0.50, float 0.976;
-            float 0.75, float 0.954;
-        }
-        // TODO: Fix the information provided here!
-        // TODO: Also create the syntax highlight for nested type and respective values
-        nested detection [string "device", string "luminous_intensity", string "cm_distance", string "focus", string "detection_status"] {
-            int 1, int 25,  int 50,  bool false, bool true;
-            int 1, int 25,  int 100, bool false, bool false;
-            int 1, int 25,  int 50,  bool true,  bool true;
-            int 1, int 25,  int 100, bool true,  bool true;
-            int 1, int 150, int 50,  bool false, bool true;
-            int 1, int 150, int 100, bool false, bool false;
-            int 1, int 150, int 50,  bool true,  bool true;
-            int 1, int 350, int 50,  bool false, bool true;
-            int 1, int 350, int 100, bool false, bool true;
-            int 1, int 350, int 50,  bool true,  bool true;
-            int 1, int 350, int 100, bool true,  bool true;
-            int 2, int 25,  int 50,  bool false, bool true;
-            int 2, int 25,  int 100, bool false, bool false;
-            int 2, int 25,  int 50,  bool true,  bool true;
-            int 2, int 25,  int 100, bool true,  bool false;
-            int 2, int 150, int 50,  bool false, bool true;
-            int 2, int 150, int 100, bool false, bool false;
-            int 2, int 150, int 50,  bool true,  bool true;
-            int 2, int 350, int 50,  bool false, bool false;
-            int 2, int 350, int 100, bool false, bool true;
-            int 2, int 350, int 50,  bool true,  bool true;
-            int 2, int 350, int 100, bool true,  bool true;
-        }
-        kv_field country_validation null;
-        kv_field vr_ar_positive_impact null;
-        cluster comments null;
-    }
-    cluster professor {
-        kv_field considers_prof_pov bool false;
-        cluster comments null;
-    }
-    cluster problem_improvements -> REPETABLE[1] {
-        kv_field mentions_problems bool true;
-        cluster regard {
-            kv_field proposes_solutions bool true;
-            descriptor page14::paragraph2 kv_field problem string "Some failure cases were due to the low ambient lighting and a lack of training datasets with varying lighting conditions.";
-            descriptor page15::paragraph3 kv_field proposed_solution string "Figure 11 shows two mobile devices with three different luminous intensities of 25 lux, 150 lux, and 350 lux. ... This evaluation enables us to determine the optimal room lighting configuration for good AR-based object detection.";
-        }
-        cluster regard {
-            kv_field proposes_solutions bool true;
-            descriptor page15::paragraph4 kv_field problem string "Due to the camera's lack of focus, we discovered that our camera was not tracking the multimeter during our preliminary results.";
-            descriptor page15::paragraph4 kv_field proposed_solution string "We included a script in our Unity engine project that allowed us to focus on the mobile camera.";
-        }   
-    }
-    cluster further_improvements -> REPETABLE[1] {
-        descriptor page15::paragraph4 kv_field comment string "However, the distance will have an impact on the detection results. According to our table evaluation, the focus parameter increases the likelihood of detecting a multimeter in different light intensities, but it also depends on the camera resolution.";
-        descriptor page15::paragraph1 kv_field comment string "In the future, we will create tutorials for additional lab equipment.";
-        descriptor page15::paragraph1 kv_field comment string "One application will be the addition of a 3D interactive breadboard in the app to help students understand electrical circuits.";
-        descriptor page15::paragraph1 kv_field comment string "Another potential enhancement of the proposed AR- and AI-based education tool would be to support remote learning, in which students can learn lab equipment through the AR streaming on their mobile devices or personal computers.";
-    }
-}
+    kv_field is_validated bool true;
+    kv_field country_validation null;
+    kv_field vr_ar_positive_impact null;
+    kv_field considers_prof_pov bool false;
+} @END;
 
-@PRA_ENTRY(main d9c0064c636f7944df3b2ced2057a5c429c1e3a8) {
-    kv_field uid_doi string "10.1016/j.matpr.2021.07.494";
-    kv_field search_term string "ST.PRA.SD.3";
-    cluster inclusion_criteria_logic {
-        kv_field exclusion binary undefined;
-        kv_field inclusion binary undefined;
-    }
-    kv_field count_citation int 19;
+@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1002/cae.22102") {
+    kv_field search_term string "ST.PRA.WOS.3";
+    kv_field count_citation int 12;
     kv_field count_reference int 33;
     cluster focus_areas -> UNKEY {
-        string "Mechanical Engineering";
-        string "Civil Engineering";
+        string "Electrical Engineering";
     }
-    cluster learning_process {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
+    kv_field mentions_learning_process bool true;
+    kv_field defines_learning_process bool false;
+    kv_field mentions_learning_experience bool false;
+    kv_field defines_learning_experience bool false;
+    kv_field mentions_engagement bool false;
+    kv_field defines_engagement bool false;
+    kv_field mentions_motivation bool true;
+    kv_field defines_motivation bool false;
+    kv_field mentions_abstract_concepts bool true;
+    kv_field defines_abstract_concepts bool false;
+    kv_field mentions_user_interface bool false;
+    kv_field defines_user_interface bool false;
+    kv_field class_ar_applied bool true;
+    kv_field class_vr_applied bool false;
+    cluster educational_purpose {
+        kv_field is_training bool false;
+        kv_field is_teaching bool true;
+        kv_field Is_Observing bool false;
     }
-    cluster learning_experience {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
+    cluster type_of_experience {
+        kv_field is_augmented_reality bool true;
+        kv_field is_virtual_reality bool false;
+        kv_field is_display bool false;
     }
-    cluster engagement {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
+    cluster delivery_technology {
+        kv_field is_screen bool true;
+        kv_field is_head_mounted_display bool false;
     }
-    cluster motivation {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
-    }
-    cluster abstract_concepts {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
+    cluster back_end_technology {
+        kv_field is_stationary bool false;
+        kv_field is_mobile bool true;
+        kv_field is_cloud bool false;
     }
     cluster user_interface {
-        kv_field mentions bool undefined;
-        kv_field defines bool undefined;
-        cluster extracted_data -> REPETABLE[1] {
-            descriptor page::paragraph kv_field definition string undefined;
-            descriptor page::paragraph kv_field commet string undefined;
-        }
+        kv_field is_general_purpose_controlled bool true;
+        kv_field is_user_tracking bool false;
+        kv_field is_specialized_controller bool false;
+        kv_field is_no_interaction bool true;
     }
+    cluster system_interaction {
+        kv_field is_dialog_system bool false;
+        kv_field is_intelligent_agent bool false;
+        kv_field is_no_interaction bool true;
+    }
+    cluster production_technology {
+        kv_field is_static_display bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        kv_field is_modeling bool false;
+        kv_field is_cinematography bool false;
+    }
+    cluster type_of_gamefication {
+        kv_field is_reward_based bool false;
+        kv_field is_serious_games bool false;
+        kv_field is_no_gamefication bool true;
+    }
+    kv_field is_considered_integration_traditional_teaching bool false;
+    cluster used_technologies -> UNKEY {
+        string "SIFT";
+        string "Multilayer Neural Network";
+        string "Android Application";
+    }
+    kv_field is_validated true;
+    kv_field country_validation string "Mexico";
+    kv_field vr_ar_positive_impact bool true;
+    kv_field considers_prof_pov bool false;
+} @END;
+
+@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1002/cae.21912") {
+    kv_field search_term string "ST.PRA.WOS.3";
+    kv_field FirstPublishingDate string "2018-02";
+    kv_field count_citation int 14;
+    kv_field count_reference int 34;
+    cluster focus_areas -> UNKEY {
+        undefined
+    }
+    kv_field mentions_learning_process bool undefined;
+    kv_field defines_learning_process bool undefined;
+    kv_field mentions_learning_experience bool undefined;
+    kv_field defines_learning_experience bool undefined;
+    kv_field mentions_engagement bool undefined;
+    kv_field defines_engagement bool undefined;
+    kv_field mentions_motivation bool undefined;
+    kv_field defines_motivation bool undefined;
+    kv_field mentions_abstract_concepts bool undefined;
+    kv_field defines_abstract_concepts bool undefined;
+    kv_field mentions_user_interface bool undefined;
+    kv_field defines_user_interface bool undefined;
     kv_field class_ar_applied bool undefined;
     kv_field class_vr_applied bool undefined;
     cluster educational_purpose {
@@ -792,9 +255,9 @@
     cluster type_of_experience {
         kv_field is_augmented_reality bool undefined;
         kv_field is_virtual_reality bool undefined;
-        }
-    cluster delivery_technology {
         kv_field is_display bool undefined;
+    }
+    cluster delivery_technology {
         kv_field is_screen bool undefined;
         kv_field is_head_mounted_display bool undefined;
     }
@@ -809,7 +272,7 @@
         kv_field is_specialized_controller bool undefined;
         kv_field is_no_interaction bool undefined;
     }
-    cluster System_Interaction {
+    cluster system_interaction {
         kv_field is_dialog_system bool undefined;
         kv_field is_intelligent_agent bool undefined;
         kv_field is_no_interaction bool undefined;
@@ -823,54 +286,13 @@
         kv_field is_serious_games bool undefined;
         kv_field is_no_gamefication bool undefined;
     }
-    cluster integration_traditional_teaching {
-        kv_field is_considered bool false;
-        descriptor page::paragraph kv_field consideration null;
+    kv_field is_considered_integration_traditional_teaching bool undefined;
+    cluster used_technologies -> UNKEY {
+        undefined
     }
-    cluster used_technologies {
-        kv_field number_technologies_used int undefined;
-        cluster technologies -> REPETABLE[1] {
-            cluster technology {
-                descriptor page::paragraph` kv_field name string undefined;
-                descriptor page::paragraph` kv_field type string undefined;
-            }
-            ...
-        }
-    }
-    cluster validation -> REPETABLE[1] {
-        kv_field is_validated bool true;
-        cluster validation_mechanism id something {
-            descriptor page::paragraph kv_field validation_type string undefined;
-            descriptor page::paragraph kv_field validation_steps string undefined;
-        }
-    }
-    cluster subjects_statistic -> MULTABLE {
-        ...
-    }
-    cluster article_results -> MULTABLE {
-        ...
-        kv_field country_validation string undefined;
-        kv_field vr_ar_positive_impact bool undefined;
-        cluster comments -> REPETABLE[1] {
-            kv_field comment string undefined;
-        }
-    }
-    cluster professor {
-        kv_field considers_prof_pov bool undefined;
-        cluster comments string undefined;
-    }
-    cluster problem_improvements -> REPETABLE[1] {
-        kv_field mentions_problems bool undefined;
-        cluster regard {
-            kv_field proposes_solutions bool undefined;
-            kv_field problem string undefined;
-            kv_field proposed_solution string undefined;
-            kv_field explanation string undefined;
-        }
-        ...
-    }
-    cluster further_improvements -> REPETABLE[1] {
-        descriptor page::paragraph kv_field comment string undefined;
-        ...
-    }
-}
+    kv_field is_validated undefined;
+    kv_field country_validation string undefined;
+    kv_field vr_ar_positive_impact bool undefined;
+    kv_field considers_prof_pov bool undefined;
+} @END;
+
