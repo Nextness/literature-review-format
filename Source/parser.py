@@ -1,32 +1,11 @@
 import regex as re
 from dataclasses import dataclass, field
 from typing import (
-    Union, 
-    Any, 
-    Optional, 
+    Union,
+    Any,
+    Optional,
     Callable
 )
-
-
-class RESERVED:
-    ENTRY_TYPE = r"@ENTRY"
-    END_ENTRY = r"@END"
-    RELEVANCE = r"(main|notable)"
-    DATATYPE_TYPE = r"(string|int|bool)"
-    RESTRICITED_WORDS = r"(kv_field|cluster)"
-    INPUT = r"(\"[\d\w\.\-]+\"|\d+|false|true|undefined|null|\"[\w\d\s]+\")"
-    NULL = r"null"
-    PARAMETERS = r"UNKEY"
-    OPERATOR = r"\-\>"
-
-
-def format_data(string: str, remove_list: list[Any]) -> list[str]:
-    string = string.strip()
-    for item in remove_list:
-        string = re.sub(item, "", string)
-    string = string.split(" ")
-    return list(filter(None, string))
-
 
 def removeLC(inputString: str) -> str:
     pattern = re.compile(r'//.*?$', re.DOTALL | re.MULTILINE)
@@ -35,6 +14,32 @@ def removeLC(inputString: str) -> str:
         repl = "",
         string = inputString.strip()
     )
+
+
+class RESERVED:
+    ENTRY_TYPE = r"@ENTRY"
+    END_ENTRY = r"@END"
+    RELEVANCE = r"(main|notable)"
+    DATATYPE_TYPE = r"(string|int|bool)"
+    RESTRICITED_WORDS = r"(kv_field|cluster)"
+    INPUT = r"(\"[\d\s\w\.\-\:]+\"|\d+|false|true|undefined|null)" # \"[\w\d\s]+\"|
+    NULL = r"null"
+    PARAMETERS = r"UNKEY"
+    OPERATOR = r"\-\>"
+
+def format_data(string: str, remove_list: list[Any]) -> list[str]:
+    string = string.strip()
+    for item in remove_list:
+        string = re.sub(item, "", string)
+    string = string.split(" ")
+    return list(filter(None, string))
+
+def format_data_title(string: str, remove_list: list[Any]) -> list[str]:
+    string = string.strip()
+    for item in remove_list:
+        string = re.sub(item, "", string)
+    string = string.split(" ", 2)
+    return list(filter(None, string))
 
 
 @dataclass
@@ -59,7 +64,6 @@ class EntryDeserialization:
         self.UniqueIDKey = self.Constructor[2]
         self.UniqueIDValue = self.Constructor[3]
 
-
 def is_data_entry(input_string: list[str]) -> bool:
     input_string: str = input_string[0].strip()
     entry_pattern_regex = f'{RESERVED.ENTRY_TYPE}\({RESERVED.RELEVANCE}\s+[\d\w]+:\s+{RESERVED.RESTRICITED_WORDS}\s+[\d\w]+\s+{RESERVED.DATATYPE_TYPE}\s+"[\w\d\.\/\-]+"\)\s*{{'
@@ -78,14 +82,17 @@ class KvFieldObject:
             RESERVED.DATATYPE_TYPE,
             r"\"|\;"
         ]
-        self.Constructor = format_data(self.Constructor, remove_list)
-        self.Key = self.Constructor[0]
-        self.Value = self.Constructor[1]
-
+        # TODO: Fix this horrible code. :(
+        if "kv_field Title" in self.Constructor: 
+            self.Constructor = format_data_title(self.Constructor, remove_list)
+        else:
+            self.Constructor = format_data(self.Constructor, remove_list)
+        self.Key = self.Constructor[0].strip()
+        self.Value = self.Constructor[1].strip()
 
 def is_kv_field(input_string: list[str]) -> bool:
     input_string: str = input_string[0].strip()
-    kv_field_pattern_regex = f'{RESERVED.RESTRICITED_WORDS}\s+[\d\w]+\s+{RESERVED.DATATYPE_TYPE}\s+{RESERVED.INPUT};'
+    kv_field_pattern_regex = f'{RESERVED.RESTRICITED_WORDS}\s+[\w\d]+\s+{RESERVED.DATATYPE_TYPE}\s+{RESERVED.INPUT};'
     return True if re.match(kv_field_pattern_regex, input_string) else False
 
 
@@ -118,7 +125,6 @@ class ClusterObject:
             self.ClusterName = self.Constructor
             self.EntryDataDict = dict()
 
-
 def is_cluster(input_string: list[str]) -> bool:
     input_string: str = input_string[0].strip()
     cluster_pattern_regex_1: str = f'({RESERVED.RESTRICITED_WORDS}\s+[\d\w]+\s+{{)|({RESERVED.RESTRICITED_WORDS}\s+[\d\w]+\s+{RESERVED.OPERATOR}\s+{RESERVED.PARAMETERS}\s+{{)|({RESERVED.RESTRICITED_WORDS}\s+[\d\w]+\s+{RESERVED.NULL}\;)'
@@ -134,7 +140,6 @@ class UnkeyEntry:
         _regex_remove_string: str = f'{RESERVED.DATATYPE_TYPE}|\"|\;'
         self.Constructor = re.sub(pattern = _regex_remove_string, repl = "", string = self.Constructor)
         self.Value = str(self.Constructor.strip())
-
 
 def is_unkey_entry(input_string: str) -> bool:
     input_string: str = input_string[0].strip()
@@ -319,7 +324,10 @@ def literature_review_parser(
         return _internalReturnDictionary, _DictionaryObjectConstructorList
     
     while fileData:
+
+        # print(fileData[0])
         fileData[0] = removeLC(fileData[0])
+
         if is_data_entry(fileData):
             dictionaryObject, dictionaryObjectConstructorList = parseDataEntry(
                 fileData = fileData, _internalReturnDictionary = dictionaryObject
