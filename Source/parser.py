@@ -1,5 +1,6 @@
 import regex as re
 from dataclasses import dataclass, field
+from json import dumps
 from typing import (
     Union,
     Any,
@@ -7,8 +8,15 @@ from typing import (
     Callable
 )
 
+def j_print(dictonary: dict) -> None:
+        
+    indent = 4
+    ensure_ascii = False
+    print(dumps(dictonary, indent=indent, ensure_ascii=ensure_ascii))
+
+
 def removeLC(inputString: str) -> str:
-    pattern = re.compile(r'//.*?$', re.DOTALL | re.MULTILINE)
+    pattern = re.compile(r'//.*?$', re.DOTALL)
     return re.sub(
         pattern = pattern,
         repl = "",
@@ -17,11 +25,11 @@ def removeLC(inputString: str) -> str:
 
 
 class RESERVED:
-    ENTRY_TYPE = r"@ENTRY"
-    END_ENTRY = r"@END"
+    ENTRY_TYPE = r"Entry"
+    END_ENTRY = r"End"
     RELEVANCE = r"(main|notable)"
     DATATYPE_TYPE = r"(string|int|bool)"
-    RESTRICITED_WORDS = r"(kv_field|cluster)"
+    RESTRICITED_WORDS = r"(key|cluster)"
     INPUT = r"(\"[\d\s\w\.\-\:]+\"|\d+|false|true|undefined|null)" # \"[\w\d\s]+\"|
     NULL = r"null"
     PARAMETERS = r"UNKEY"
@@ -71,7 +79,7 @@ def is_data_entry(input_string: list[str]) -> bool:
 
 
 @dataclass
-class KvFieldObject:
+class keyObject:
     Constructor: Any = field(repr=False)
     Key: str = field(init=False)
     Value: str = field(init=False)
@@ -214,22 +222,22 @@ def literature_review_parser(
         return _internalReturnDictionary, _DictionaryObjectConstructorList
 
 
-    def parseKVField(
+    def parseKeyField(
         *, fileData: list[str],  
         _internalReturnDictionary: dict, 
         _DictionaryObjectConstructorList: list[str]
     ) -> tuple[dict[str, str], list[str]]:
-
+        
         inputString: str = removeLC(fileData[0])
-        KVField: KvFieldObject = KvFieldObject(Constructor = inputString)
+        KeyField: keyObject = keyObject(Constructor = inputString)
         _DictionaryObjectConstructorList.append(
-            KVField.Key
+            KeyField.Key
         )
 
         _internalReturnDictionary: dict = constructNestedDict(
             _internalReturnDictionary = _internalReturnDictionary,
             _DictionaryObjectConstructorList = _DictionaryObjectConstructorList,
-            _internalInsertValue = KVField.Value,
+            _internalInsertValue = KeyField.Value,
             _setInputType = dict(),
             _popLastElementList = True
         )
@@ -260,7 +268,7 @@ def literature_review_parser(
         _internalReturnDictionary: dict, 
         _DictionaryObjectConstructorList: list[str]
     ) -> tuple[dict[str, str], list[str]]:
-
+        
         inputString: str = removeLC(fileData[0])
         cluster: ClusterObject = ClusterObject(Constructor = inputString)
 
@@ -307,7 +315,7 @@ def literature_review_parser(
                     if fileData[0].strip().startswith("}"): 
                         fileData.pop(0)
                         break
-                    _internalReturnDictionary, dictionaryObjectConstructorList = parseKVField(
+                    _internalReturnDictionary, dictionaryObjectConstructorList = parseKeyField(
                         fileData = fileData, _internalReturnDictionary = _internalReturnDictionary,
                         _DictionaryObjectConstructorList = _DictionaryObjectConstructorList
                     )
@@ -325,16 +333,13 @@ def literature_review_parser(
     
     while fileData:
 
-        # print(fileData[0])
-        fileData[0] = removeLC(fileData[0])
-
         if is_data_entry(fileData):
             dictionaryObject, dictionaryObjectConstructorList = parseDataEntry(
                 fileData = fileData, _internalReturnDictionary = dictionaryObject
             )
         
         elif is_kv_field(fileData):
-            dictionaryObject, dictionaryObjectConstructorList = parseKVField(
+            dictionaryObject, dictionaryObjectConstructorList = parseKeyField(
                 fileData = fileData, _internalReturnDictionary = dictionaryObject,
                 _DictionaryObjectConstructorList = dictionaryObjectConstructorList
             )

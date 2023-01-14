@@ -1,142 +1,70 @@
-@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1007/s10758-020-09469-z") {
-    kv_field search_term string "ST.PRA.WOS.3";
-    kv_field count_citation int 9;
-    kv_field count_reference int 28;
-    cluster focus_areas -> UNKEY {
+Entry(main PeerReviewedArticle: key Doi string "10.3390/app12105159") {
+    key SearchTerm string "ST.PRA.4";
+    key Title string "Deep-Learning-Incorporated Augmented Reality Application for Engineering Lab Training";
+    key PublishingYear string "2022";
+    key CountCitation int 1;
+    key CountReference int 54;
+    cluster FocusArea -> UNKEY {
         string "Electrical Engineering";
     }
-    kv_field mentions_learning_process bool true;
-    kv_field defines_learning_process bool false;
-    kv_field mentions_learnig_experience bool false;
-    kv_field defines_learnig_experience bool false;W
-    kv_field mentions_engagement bool true;
-    kv_field defines_engagement bool false;
-    kv_field mentions_motivation bool false;
-    kv_field defines_motivation bool false;
-    kv_field mentions_abstract_concepts bool true;
-    kv_field defines_abstract_concepts bool false;
-    kv_field mentions_user_interface bool true;
-    kv_field defines_user_interface bool true;
-    cluster class_ar_applied null;
-    cluster class_vr_applied -> UNKEY {
-        string "Mechatronics";
+    key MentionsLearningProcess bool false;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool false;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool false;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool false;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool true;
+        key Teaching bool false;
+        key Observing bool false;
     }
-    cluster educational_purpose {
-        kv_field is_training bool false;
-        kv_field is_teaching bool true;
-        kv_field Is_Observing bool false;
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
     }
-    cluster type_of_experience {
-        kv_field is_augmented_reality bool false;
-        kv_field is_virtual_reality bool true;
-        kv_field is_display bool false;
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
     }
-    cluster delivery_technology {
-        kv_field is_screen bool false;
-        kv_field is_head_mounted_display bool true;
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
     }
-    cluster back_end_technology {
-        kv_field is_stationary bool true;
-        kv_field is_mobile bool false;
-        kv_field is_cloud bool false;
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
     }
-    cluster user_interface {
-        kv_field is_general_purpose_controlled bool true;
-        kv_field is_user_tracking bool true;
-        kv_field is_specialized_controller bool false;
-        kv_field is_no_interaction bool false;
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
     }
-    cluster system_interaction {
-        kv_field is_dialog_system bool true;
-        kv_field is_intelligent_agent bool false;
-        kv_field is_no_interaction bool false;
+    cluster ClassificationProductionTechnology {
+        key Modeling bool true;
+        key Cinematography bool false;
     }
-    cluster production_technology {
-        kv_field is_modeling bool true;
-        kv_field is_cinematography bool false;
-    }
-    cluster type_of_gamefication {
-        kv_field is_reward_based bool false;
-        kv_field is_serious_games bool false;
-        kv_field is_no_gamefication bool true;
-    }
-    kv_field is_considered_integration_traditional_teaching bool false;
-    cluster used_technologies -> UNKEY {
-        string "Virtual Mechatronics Laboratory";
-        string "Unity3D";
-        string "3DSMax";
-    }
-    kv_field is_validated bool true;
-    kv_field country_validation null;
-    kv_field vr_ar_positive_impact bool true;
-    kv_field considers_prof_pov bool true;
-} @END;
-
-@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.3390/app12105159") {
-    kv_field search_term string "ST.PRA.WOS.3";
-    kv_field count_citation int 2;
-    kv_field count_reference int 54;
-    cluster focus_areas -> UNKEY {
-        string "Electrical Engineering";
-    }
-    kv_field mentions_learning_process bool false;
-    kv_field defines_learning_process bool false;
-    kv_field mentions_learning_experience bool true;
-    kv_field defines_learning_experience bool false;
-    kv_field mentions_engagement bool false;
-    kv_field defines_engagement bool false;
-    kv_field mentions_motivation bool false;
-    kv_field defines_motivation bool false;
-    kv_field mentions_abstract_concepts bool false;
-    kv_field defines_abstract_concepts bool false;
-    kv_field mentions_user_interface bool true;
-    kv_field defines_user_interface bool false;
-    kv_field class_ar_applied bool false;
-    kv_field class_vr_applied bool false;
-    cluster educational_purpose {
-        kv_field is_training bool true;
-        kv_field is_teaching bool false;
-        kv_field Is_Observing bool false;
-    }
-    cluster type_of_experience {
-        kv_field is_augmented_reality bool true;
-        kv_field is_virtual_reality bool false;
-        kv_field is_display bool false;
-    }
-    cluster delivery_technology {
-        kv_field is_screen bool true;
-        kv_field is_head_mounted_display bool false;
-    }
-    cluster back_end_technology {
-        kv_field is_stationary bool false;
-        kv_field is_mobile bool true;
-        kv_field is_cloud bool false;
-    }
-    cluster user_interface {
-        kv_field is_general_purpose_controlled bool true;
-        kv_field is_user_tracking bool false;
-        kv_field is_specialized_controller bool false;
-        kv_field is_no_interaction bool false;
-    }
-    cluster system_interaction {
-        kv_field is_dialog_system bool true;
-        kv_field is_intelligent_agent bool false;
-        kv_field is_no_interaction bool false;
-    }
-    cluster production_technology {
-        kv_field is_modeling bool true;
-        kv_field is_cinematography bool false;
-    }
-    cluster type_of_gamefication {
-        kv_field is_reward_based bool false;
-        kv_field is_serious_games bool false;
-        kv_field is_no_gamefication bool true;
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
     }
     cluster integration_traditional_teaching {
-        kv_field is_considered bool false;
-        kv_field consideration null;
+        key is_considered bool false;
+        key consideration null;
     }
-    cluster used_technologies -> UNKEY {
+    cluster UsedTechnologies -> UNKEY {
         string "Unity3D";
         string "MobileNet-SSD v2";
         string "OpenCV";
@@ -146,153 +74,1323 @@
         string "Photoshop";
         string "Blender";
     }
-    kv_field is_validated bool true;
-    kv_field country_validation null;
-    kv_field vr_ar_positive_impact null;
-    kv_field considers_prof_pov bool false;
-} @END;
+    key Validated bool true;
+    key ValidationCountry null;
+    key PositiveImpact null;
+    key ConsiderProfessorsPOV bool false;
+} End;
 
-@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1002/cae.22102") {
-    kv_field search_term string "ST.PRA.WOS.3";
-    kv_field count_citation int 12;
-    kv_field count_reference int 33;
-    cluster focus_areas -> UNKEY {
+
+Entry(main PeerReviewedArticle: key Doi string "10.1002/cae.22102") {
+    key SearchTerm string "ST.PRA.4";
+    key Title string "A smartphone-based augmented reality system for university students for learning digital electronics";
+    key PublishingYear string "2019";
+    key CountCitation int 13;
+    key CountReference int 33;
+    cluster FocusArea -> UNKEY {
         string "Electrical Engineering";
     }
-    kv_field mentions_learning_process bool true;
-    kv_field defines_learning_process bool false;
-    kv_field mentions_learning_experience bool false;
-    kv_field defines_learning_experience bool false;
-    kv_field mentions_engagement bool false;
-    kv_field defines_engagement bool false;
-    kv_field mentions_motivation bool true;
-    kv_field defines_motivation bool false;
-    kv_field mentions_abstract_concepts bool true;
-    kv_field defines_abstract_concepts bool false;
-    kv_field mentions_user_interface bool false;
-    kv_field defines_user_interface bool false;
-    kv_field class_ar_applied bool true;
-    kv_field class_vr_applied bool false;
-    cluster educational_purpose {
-        kv_field is_training bool false;
-        kv_field is_teaching bool true;
-        kv_field Is_Observing bool false;
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
     }
-    cluster type_of_experience {
-        kv_field is_augmented_reality bool true;
-        kv_field is_virtual_reality bool false;
-        kv_field is_display bool false;
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
     }
-    cluster delivery_technology {
-        kv_field is_screen bool true;
-        kv_field is_head_mounted_display bool false;
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
     }
-    cluster back_end_technology {
-        kv_field is_stationary bool false;
-        kv_field is_mobile bool true;
-        kv_field is_cloud bool false;
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
     }
-    cluster user_interface {
-        kv_field is_general_purpose_controlled bool true;
-        kv_field is_user_tracking bool false;
-        kv_field is_specialized_controller bool false;
-        kv_field is_no_interaction bool true;
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool true;
     }
-    cluster system_interaction {
-        kv_field is_dialog_system bool false;
-        kv_field is_intelligent_agent bool false;
-        kv_field is_no_interaction bool true;
+    cluster SystemInteraction {
+        key DialogSystem bool false;
+        key IntelligentAgent bool false;
+        key NoInteraction bool true;
     }
-    cluster production_technology {
-        kv_field is_static_display bool true; // Custom information to be included as the paper provides a VR experience using static images.
-        kv_field is_modeling bool false;
-        kv_field is_cinematography bool false;
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool false;
+        key Cinematography bool false;
     }
-    cluster type_of_gamefication {
-        kv_field is_reward_based bool false;
-        kv_field is_serious_games bool false;
-        kv_field is_no_gamefication bool true;
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
     }
-    kv_field is_considered_integration_traditional_teaching bool false;
-    cluster used_technologies -> UNKEY {
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
         string "SIFT";
         string "Multilayer Neural Network";
         string "Android Application";
     }
-    kv_field is_validated true;
-    kv_field country_validation string "Mexico";
-    kv_field vr_ar_positive_impact bool true;
-    kv_field considers_prof_pov bool false;
-} @END;
+    key Validated bool true;
+    key ValidationCountry string "Mexico";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
 
-@ENTRY(main PeerReviewedArticle: kv_field uid_doi string "10.1002/cae.21912") {
-    kv_field search_term string "ST.PRA.WOS.3";
-    kv_field FirstPublishingDate string "2018-02";
-    kv_field count_citation int 14;
-    kv_field count_reference int 34;
-    cluster focus_areas -> UNKEY {
+
+Entry(main PeerReviewedArticle: key Doi string "10.1002/cae.21912") {
+    key SearchTerm string "ST.PRA.4";
+    key Title string "Handheld augmented reality system for resistive electric circuits understanding for undergraduate students";
+    key PublishingYear string "2018";
+    key CountCitation int 15;
+    key CountReference int 34;
+    cluster FocusArea -> UNKEY {
+        string "Electrical Engineering"
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false; // Though it mentions user experience.
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool undefined;
+    key DefinesMotivation bool undefined;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool true;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool false;
+        key IntelligentAgent bool false;
+        key NoInteraction bool true;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool false;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
+        string "Arduino MEGA Board";
+        string "Bluetooth";
+        string "Android Application";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Mexico";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.3390/electronics10111286") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2021";
+    key Title string "Technology Acceptance of an Interactive Augmented Reality App on Resistive Circuits for Engineering Students";
+    key CountCitation int 7;
+    key CountReference int 74;
+    cluster FocusArea -> UNKEY {
         undefined
     }
-    kv_field mentions_learning_process bool undefined;
-    kv_field defines_learning_process bool undefined;
-    kv_field mentions_learning_experience bool undefined;
-    kv_field defines_learning_experience bool undefined;
-    kv_field mentions_engagement bool undefined;
-    kv_field defines_engagement bool undefined;
-    kv_field mentions_motivation bool undefined;
-    kv_field defines_motivation bool undefined;
-    kv_field mentions_abstract_concepts bool undefined;
-    kv_field defines_abstract_concepts bool undefined;
-    kv_field mentions_user_interface bool undefined;
-    kv_field defines_user_interface bool undefined;
-    kv_field class_ar_applied bool undefined;
-    kv_field class_vr_applied bool undefined;
-    cluster educational_purpose {
-        kv_field is_training bool undefined;
-        kv_field is_teaching bool undefined;
-        kv_field Is_Observing bool undefined;
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool false;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool undefined;
+    key ClassVRApplied bool undefined;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
     }
-    cluster type_of_experience {
-        kv_field is_augmented_reality bool undefined;
-        kv_field is_virtual_reality bool undefined;
-        kv_field is_display bool undefined;
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
     }
-    cluster delivery_technology {
-        kv_field is_screen bool undefined;
-        kv_field is_head_mounted_display bool undefined;
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
     }
-    cluster back_end_technology {
-        kv_field is_stationary bool undefined;
-        kv_field is_mobile bool undefined;
-        kv_field is_cloud bool undefined;
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
     }
-    cluster user_interface {
-        kv_field is_general_purpose_controlled bool undefined;
-        kv_field is_user_tracking bool undefined;
-        kv_field is_specialized_controller bool undefined;
-        kv_field is_no_interaction bool undefined;
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
     }
-    cluster system_interaction {
-        kv_field is_dialog_system bool undefined;
-        kv_field is_intelligent_agent bool undefined;
-        kv_field is_no_interaction bool undefined;
+    cluster SystemInteraction {
+        key PhysicalArrangement bool true; // additional field for the system interaction.
+        key DialogSystem bool false;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
     }
-    cluster production_technology {
-        kv_field is_modeling bool undefined;
-        kv_field is_cinematography bool undefined;
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool false;
+        key Cinematography bool false;
     }
-    cluster type_of_gamefication {
-        kv_field is_reward_based bool undefined;
-        kv_field is_serious_games bool undefined;
-        kv_field is_no_gamefication bool undefined;
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
     }
-    kv_field is_considered_integration_traditional_teaching bool undefined;
-    cluster used_technologies -> UNKEY {
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "Vuforia SDK";
+        string "Blender Software";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Chile";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.3390/s22010256") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2021";
+    key Title string "Smart Sensors for Augmented Electrical Experiments";
+    key CountCitation int 1;
+    key CountReference int 69;
+    cluster FocusArea -> UNKEY {
+        string "Electrical Engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool false;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false; // Though the authors have a focus on interface of the hololens for AR.
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool false;
+        key HeadMountedDisplay bool true;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool true;
+        key Mobile bool false;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool false;
+        key UserTacking bool true;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool false;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "HoloLens 2";
+        string "Android Application";
+        string "IOS Application";
+        string "OpenCV";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Germany";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.3390/electronics11030302") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2022";
+    key Title string "On the Use of Augmented Reality to Reinforce the Learning of Power Electronics for Beginners";
+    key CountCitation int 4;
+    key CountReference int 42;
+    cluster Keywords -> UNKEY {
+        string "augmented reality";
+        string "electric circuit simulation";
+        string "engineering education";
+        string "mobile learning";
+        string "UNITY";
+        string "Vuforia";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Engineering"; // The type of engineering is not metioned...
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool false;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    } 
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
         undefined
     }
-    kv_field is_validated undefined;
-    kv_field country_validation string undefined;
-    kv_field vr_ar_positive_impact bool undefined;
-    kv_field considers_prof_pov bool undefined;
-} @END;
+    key Validated bool true;
+    key ValidationCountry string "Mexico";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool true;
+} End;
 
+
+Entry(main PeerReviewedArticle: key Doi string "10.3389/fpsyg.2022.804742") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2022";
+    key Title string "Augmented Reality for Presenting Real-Time Data During Students Laboratory Work: Comparing a Head-Mounted Display With a Separate Display";
+    key CountCitation int 1;
+    key CountReference int 83;
+    cluster Keywords -> UNKEY {
+        string "Augmented Reality and education";
+        string "multimedia learning";
+        string "cognitive load theory";
+        string "science education";
+        string "physics laboratory courses";
+        string "split-attention effect";
+        string "spatial contiguity principle";
+        string "coherence formation";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Mechanical Engineering";
+        string "Bio-chemical Engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false; // Though it has references which mention learning experience <- look into it for sure.
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool true;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool false;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true; // Is mentioned only once though. Maybe not the greatest example, but still applies.
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool true;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool true;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool true;
+        key Mobile bool false;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool false;
+        key UserTacking bool true;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool false;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool undefined;
+    cluster UsedTechnologies -> UNKEY {
+        string "HoloLens";
+        string "Apple iPad";
+        string "Tobii X3-120 stationary eye-tracking system";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Germany";
+    key PositiveImpact bool false;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1002/cae.22245") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string 2020;
+    key Title string "Development of an augmented reality-based scaffold to improve the learning experience of engineering students in embedded system course";
+    key CountCitation int 12;
+    key CountReference int 30;
+    cluster Keywords -> UNKEY {
+        string "AR marker";
+        string "augmented reality";
+        string "embedded systems";
+        string "engineering education";
+        string "usability";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Electronics and Communication engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool true;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool false;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool true;
+        key Mobile bool false;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool undefined;
+    cluster UsedTechnologies -> UNKEY {
+        string "Arduino Uno";
+        string "Logitech Webcam 2.0";
+        string "Unity 3D";
+        string "3D Maya";
+        string "Vuforia SDK";
+        string "Pedagogical virtual machine";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1177/0020720920954150") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string 2020;
+    key Title string "Augmented reality application in engineering education: N-Type MOSFET";
+    key CountCitation int 5;
+    key CountReference int 22;
+    cluster Keywords -> UNKEY {
+        string "Augmented reality";
+        string "education";
+        string "engineering";
+        string "N-type MOSFET";
+        string "mobile learning";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Electrical Engineering";
+        string "Electronic Engineering";
+    }
+    key MentionsLearningProcess bool false;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool false;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool true;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool true;
+        key Teaching bool false;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "Vuforia SDK";
+        string "3D Max";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Turkey";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1002/cae.22342") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2020";
+    key Title string "A framework utilizing augmented reality to improve critical thinking ability and learning gain of the students in Physics";
+    key CountCitation int 18;
+    key CountReference int 40;
+    cluster Keywords -> UNKEY {
+        string "augmented reality";
+        string "critical thinking";
+        string "engineering education";
+        string "learning environment";
+        string "learning gain";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Electrical Engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "Autodesk Maya";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1007/s10639-022-10987-9") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2022";
+    key Title string "A mobile augmented reality system to conduct electrical machines laboratory for undergraduate engineering students during the COVID pandemic";
+    key CountCitation int 0;
+    key CountReference int 23;
+    cluster Keywords -> UNKEY {
+        string "Augmented reality (AR) laboratory";
+        string "Electrical machines simulation";
+        string "Virtual laboratory";
+        string "Engineering education";
+        string "Ubiquitous device";
+        string "COVID pandemic";
+    }
+    cluster FocusArea -> UNKEY {
+        undefined;
+    }
+    key MentionsLearningProcess bool false;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool false;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "Vuforia SDK";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool undefined;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1080/10494820.2019.1674885") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2019";
+    key Title string "Design implications for adaptive augmented reality based interactive learning environment for improved concept comprehension in engineering paradigms";
+    key CountCitation int 7;
+    key CountReference int 44;
+    cluster Keywords -> UNKEY {
+        string "Adaptive augmented reality";
+        string "interactive learning";
+        string "mobile AR";
+        string "table-top AR";
+        string "design implication";
+        string "concept comprehension";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Electronics Engineering";
+        string "Electrical Engineering";
+    }
+    key MentionsLearningProcess bool false;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool true;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool true;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "EasyAR"
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1016/j.chb.2014.11.093") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2015";
+    key Title string "Augmented reality to promote collaborative and autonomous learning in higher education";
+    key CountCitation int 231;
+    key CountReference int 30;
+    cluster Keywords -> UNKEY {
+        string "Augmented reality";
+        string "Engineering education";
+        string "Collaborative learning";
+        string "Interactive learning environments";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Electrical Engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool undefined;
+    key DefinesLearningExperience bool undefined;
+    key MentionsEngagement bool true;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false; // Although the authors mention it is not scope of their work. At the end the authors say their result suggest that motivation is important for learning outcomes of their experiment.
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool undefined;
+    cluster UsedTechnologies -> UNKEY {
+        undefined;
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1016/j.procs.2020.05.086") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2020";
+    key Title string "Experience Flemings rule in Electromagnetism Using Augmented Reality: Analyzing Impact on Students Learning";
+    key CountCitation int 12;
+    key CountReference int 30;
+    cluster Keywords -> UNKEY {
+        string "Augmented Reality";
+        string "Electromagnetism";
+        string "Experimentation";
+        string "Fleming's rule";
+        string "Virtual Reality";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Engineering In general";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true; // The author mentions it as "... imaginary concepts like magnietic field line, ..."
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificationBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool false;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1080/10494820.2021.1928710") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2021";
+    key Title string "The acceptance of augmented reality in engineering education: the role of technology optimism and technology innovativeness";
+    key CountCitation int 1;
+    key CountReference int 83;
+    cluster Keywords -> UNKEY {
+        string "Augmented reality";
+        string "technology acceptance";
+        string "engineering";
+        string "education";
+        string "interactive app";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Engineering in Information Technology";
+        string "Engineering in Telecommunications, Connectivity, and Networks";
+        string "Industrial Engineering";
+        string "Mechanical Engineering";
+        string "Engineering in Mines";
+        string "Civil Engineering";
+        string "Environmental Engineering";
+        string "Construction Engineering";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool true;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false;
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificaitonBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool false;
+    cluster UsedTechnologies -> UNKEY {
+        string "Vuforia SDK";
+        string "Unity 3D";
+        string "Blender";
+        string "Smart PLS 3.2.9";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true;
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1080/03043797.2017.1363719") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2017";
+    key Title string "Exploratory study of the acceptance of two individual practical classes with remote labs";
+    key CountCitation int 13;
+    key CountReference int 72;
+    cluster Keywords -> UNKEY {
+        string "Engineering education";
+        string "remote lab";
+        string "electrical machines";
+        string "photovoltaic systems;" 
+        string "technology acceptance;" 
+        string "augmented reality";
+        string "experiential learning";
+        string "online learning";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Energy Engineering"; 
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool false;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false; // Kind of describes actually. It talks in regards to cognitive load and constructivism theory.
+    key MentionsUserInterface bool true;
+    key DefinesUserInterface bool false; // Kind of. It describes the UI elements in regards to the elements of the authors application.
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificaitonBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool false;
+        key Cloud bool true;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images.
+        key Modeling bool true;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Moodle";
+        string "Arduino Board";
+        string "Raspberry Pi board";
+        string "Easy Java Simulations";
+
+    }
+    key Validated bool true;
+    key ValidationCountry string "Not mentioned";
+    key PositiveImpact bool true; // But with a caviat, there are some considerations to a few of the points mentioned by the authors.
+    key ConsiderProfessorsPOV bool false;
+} End;
+
+
+Entry(main PeerReviewedArticle: key Doi string "10.1111/bjet.12900") {
+    key SearchTerm string "ST.PRA.4";
+    key PublishingYear string "2020";
+    key Title string "The use of augmented reality to foster conceptual knowledge acquisition in STEM laboratory courses—Theoretical background and empirical results";
+    key CountCitation int 53;
+    key CountReference int 50;
+    cluster Keywords -> UNKEY {
+        string "Augmented Reality";
+        string "Physics";
+        string "Multimedia";
+        string "Virtual Laboratories";
+    }
+    cluster FocusArea -> UNKEY {
+        string "Randomly Assigned University Students";
+    }
+    key MentionsLearningProcess bool true;
+    key DefinesLearningProcess bool false;
+    key MentionsLearningExperience bool true;
+    key DefinesLearningExperience bool false;
+    key MentionsEngagement bool false;
+    key DefinesEngagement bool false;
+    key MentionsMotivation bool false;
+    key DefinesMotivation bool false;
+    key MentionsAbstractConcepts bool true;
+    key DefinesAbstractConcepts bool false; // Although the authors propose a way to validate the acquisition of conceptual knowledge with a pre- post- test.
+    key MentionsUserInterface bool false;
+    key DefinesUserInterface bool false;
+    key ClassARApplied bool true;
+    key ClassVRApplied bool false;
+    cluster ClassificationEducationalPurpose {
+        key Training bool false;
+        key Teaching bool true;
+        key Observing bool false;
+    }
+    cluster ClassificationExperience {
+        key AugmentedReality bool true;
+        key VirtualReality bool false;
+        key Display bool false;
+    }
+    cluster ClassificationDeliveryTechnology {
+        key Screen bool true;
+        key HeadMountedDisplay bool false;
+    }
+    cluster ClassificaitonBackEndTechnology {
+        key Stationary bool false;
+        key Mobile bool true;
+        key Cloud bool false;
+    }
+    cluster UserInterface {
+        key GeneralPurposeController bool true;
+        key UserTacking bool false;
+        key SpecializedController bool false;
+        key NoInteraction bool false;
+    }
+    cluster SystemInteraction {
+        key DialogSystem bool true;
+        key IntelligentAgent bool false;
+        key NoInteraction bool false;
+    }
+    cluster ClassificationProductionTechnology {
+        key StaticInformationDisplay bool true; // Custom information to be included as the paper provides a VR experience using static images
+        key Modeling bool false;
+        key Cinematography bool false;
+    }
+    cluster ClassificationTypeGamefication {
+        key RewardBased bool false;
+        key SeriousGames bool false;
+        key NoGamefication bool true;
+    }
+    key ConsidersIntegrationTraditionalTeaching bool true;
+    cluster UsedTechnologies -> UNKEY {
+        string "Unity 3D";
+        string "Vuforia SDK";
+    }
+    key Validated bool true;
+    key ValidationCountry string "Germane";
+    key PositiveImpact bool false; // But there are caviats for this to be the case
+    key ConsiderProfessorsPOV bool false;
+} End;
